@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>results</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style>
+
+        .ding {
+            height: 50px;
+            width: 100%;
+            border-bottom: solid 1px lightgray;
+        }
+
+
+        .di {
+            height: 800px;
+            width: 100%;
+
+        }
+
+
+        .di > .d_center p {
+            font-size: 12px;
+            margin-top: -3px;
+        }
+
+        .dc {
+            height: 300px;
+            width: 80%;
+
+        }
+
+        .d_right .dr_center div {
+            height: 279px;
+            width: 30%;
+            float: left;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .d_right .dr_center p {
+            margin: 3px;
+        }
+
+        .d_right .dr_center span a {
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+<br>
+<div class="container">
+    <!--顶部-->
+    <form class="form-inline" role="search" method="get" id="searchform" action="{% url 'search' %}">
+        {% csrf_token %}
+        <div class="ding">
+            <div class="col-lg-6">
+                <input type="text" class="form-control" name="s_word" placeholder="Type to search">
+                <button class="btn" type="submit">搜索</button>
+            </div>
+        </div>
+    </form>
+    <!--导航-->
+    <!--主体-->
+    <div class="di">
+        <p class="lead text-center">已为您找到{{num}}条相关内容</p>
+        <div class="dc">
+            {% for d in data %}
+
+            <div class="panel panel-success">
+                <a href="{{ d.url }}" target="_blank">
+                    <div class="panel-body" style="background-color: #b2dba1">
+                        {{ d.title }}
+                    </div>
+                </a>
+                <div class="panel-footer">
+                    <p class="lead" style="font-size: small">{{ d.text }}</p>
+                    <p class="lead small" style="color: #9d9d9d">{{ d.date }}   {{ d.source }}</p>
+                </div>
+            </div>
+
+            <!--                <h4>
+                                {{ d.title }}
+                                <p class="lead" style="font-size: small">{{ d.text }}</p>
+                                <p class="lead" style="font-size: small">{{ d.date }}</p>
+                            </h4>
+                        </a>
+                        <br>-->
+            {% endfor %}
+        </div>
+    </div>
+    <!--    &lt;!&ndash;分页&ndash;&gt;
+        <nav aria-label="...">
+            <ul class="pager">
+                <li><a href="#">Previous</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </nav>-->
+</div>
+</body>
+</html>
+<script>
+    var json_Data = {
+    {
+        json_Data | safe;
+    }
+    }
+    ;
+    console.log(json_Data)
+</script>
+<!--<script>-->
+<!--    // var name = {{name|safe}};-->
+<!--    // // var n = JSON.parse(name);-->
+<!--    // console.log(typeof (name));-->
+<!--    // var url = {{url|safe}};-->
+<!--    // // var u = JSON.parse(url);-->
+<!--    // console.log(typeof (url));-->
+<!--//     var num = {{num|safe}};-->
+<!--//     console.log(num);-->
+<!--// &lt;!&ndash;    for(i=0;i<num;i++)&ndash;&gt;-->
+<!--// &lt;!&ndash;    {&ndash;&gt;-->
+<!--// &lt;!&ndash;        document.getElementById("1").innerHTML=name.i;&ndash;&gt;-->
+<!--// &lt;!&ndash;        // console.log(name.i);&ndash;&gt;-->
+<!--// &lt;!&ndash;        document.getElementById("1").href=url.i;&ndash;&gt;-->
+<!--// &lt;!&ndash;        // console.log(url.i);&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--</script>-->

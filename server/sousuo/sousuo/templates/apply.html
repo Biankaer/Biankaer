@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form role="search" method="get" id="searchform" action="{% url 'search' %}">
+    {% csrf_token %}
+    <div class="search-box">
+        <input class="search-txt" name="s_word" type="search" placeholder="请输入">
+        <input class="search-txt" name="word" type="search" placeholder="请输入">
+        <button type="submit"></button>
+    </div>
+    </form>
+</body>
+</html>
